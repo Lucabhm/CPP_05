@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:38 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/10 16:05:41 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/10 16:10:20 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,18 @@ Bureaucrat::Bureaucrat(void) : name("default")
 	this->grade = 150;
 }
 
-Bureaucrat::Bureaucrat(const std::string newName, int grade) : name(newName)
+Bureaucrat::Bureaucrat(const std::string newName, int newGrade) : name(newName)
 {
 	std::cout << "Bureaucrat constructor with name attribute called" << std::endl;
-	this->grade = grade;
+	try
+	{
+		this->setGrade(newGrade);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+		this->grade = 150;
+	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : name(cpy.getName())
@@ -45,7 +53,14 @@ Bureaucrat	&Bureaucrat::operator= (const Bureaucrat &cpy)
 
 Bureaucrat	&Bureaucrat::operator++ (void)
 {
-	this->grade--;
+	try
+	{
+		this->setGrade(this->grade--);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return (*this);
 }
 
