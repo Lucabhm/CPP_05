@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:35 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/10 16:09:25 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/10 16:33:48 by lucabohn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &cpy);
 		~Bureaucrat(void);
 		Bureaucrat	&operator= (const Bureaucrat &cpy);
-		Bureaucrat	&operator++ (void);
-		Bureaucrat	&operator-- (void);
+		Bureaucrat	&operator++ (int value);
+		Bureaucrat	&operator-- (int value);
 		std::string	getName(void) const;
 		void	setGrade(int newGrade);
 		int		getGrade(void) const;

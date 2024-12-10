@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:38 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/10 16:10:20 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/10 18:56:08 by lucabohn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,7 @@ Bureaucrat::Bureaucrat(void) : name("default")
 Bureaucrat::Bureaucrat(const std::string newName, int newGrade) : name(newName)
 {
 	std::cout << "Bureaucrat constructor with name attribute called" << std::endl;
-	try
-	{
-		this->setGrade(newGrade);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-		this->grade = 150;
-	}
+	this->setGrade(newGrade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : name(cpy.getName())
@@ -51,29 +43,15 @@ Bureaucrat	&Bureaucrat::operator= (const Bureaucrat &cpy)
 	return (*this);
 }
 
-Bureaucrat	&Bureaucrat::operator++ (void)
+Bureaucrat	&Bureaucrat::operator++ (int value)
 {
-	try
-	{
-		this->setGrade(this->grade--);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	this->setGrade(--this->grade);
 	return (*this);
 }
 
-Bureaucrat	&Bureaucrat::operator-- (void)
+Bureaucrat	&Bureaucrat::operator-- (int value)
 {
-	try
-	{
-		this->setGrade(this->grade++);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	this->setGrade(++this->grade);
 	return (*this);
 }
 
@@ -99,7 +77,7 @@ int	Bureaucrat::getGrade(void) const
 
 std::ostream	&operator<< (std::ostream &stream, const Bureaucrat &person)
 {
-	stream << person.getName() << "," << " bureaucrat grade " << person.getGrade() << std::endl;
+	stream << person.getName() << "," << " bureaucrat grade " << person.getGrade();
 	return (stream);
 }
 
