@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:38 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 10:22:08 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/11 15:30:24 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat(void) : name("default")
 
 Bureaucrat::Bureaucrat(const std::string newName, int newGrade) : name(newName)
 {
-	std::cout << "Bureaucrat constructor with name attribute called" << std::endl;
+	std::cout << "Bureaucrat constructor with attributes called" << std::endl;
 	this->setGrade(newGrade);
 }
 
@@ -67,7 +67,10 @@ void	Bureaucrat::setGrade(int newGrade)
 	else if (newGrade < 1)
 		throw Bureaucrat::GradeTooLowException();
 	else
+	{
 		this->grade = newGrade;
+		std::cout << "Changed Grade to = " << this->getGrade() << std::endl;
+	}
 }
 
 int	Bureaucrat::getGrade(void) const
@@ -75,10 +78,12 @@ int	Bureaucrat::getGrade(void) const
 	return (this->grade);
 }
 
-std::ostream	&operator<< (std::ostream &stream, const Bureaucrat &person)
+void	Bureaucrat::signForm(const AForm &file) const
 {
-	stream << person.getName() << "," << " bureaucrat grade " << person.getGrade();
-	return (stream);
+	if (this->getGrade() <= file.getGradeToSign())
+		std::cout << this->getName() << " signed " << file.getName() << std::endl;
+	else
+		throw AForm::GradeTooLowException();
 }
 
 const char *	Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
@@ -89,4 +94,10 @@ const char *	Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
 const char *	Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
 {
 	return ("Grade to Low");
+}
+
+std::ostream	&operator<< (std::ostream &stream, const Bureaucrat &person)
+{
+	stream << person.getName() << "," << " bureaucrat grade " << person.getGrade();
+	return (stream);
 }

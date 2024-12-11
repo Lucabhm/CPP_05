@@ -5,37 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 12:06:06 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 14:04:14 by lbohm            ###   ########.fr       */
+/*   Created: 2024/12/11 10:07:04 by lbohm             #+#    #+#             */
+/*   Updated: 2024/12/11 15:02:44 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
 	try
 	{
-		Bureaucrat	d;
-		Bureaucrat	Luca("Luca", 10);
-		Bureaucrat	copy(Luca);
+		Form		d("car", 10, 10);
+		Bureaucrat	db("Luca", 150);
 
-		std::cout << "1 " << d << std::endl;
-		std::cout << "2 " << Luca << std::endl;
-		std::cout << "3 " << copy << std::endl;
-		Luca++;
-		d++;
-		std::cout << Luca << std::endl;
-		std::cout << copy << std::endl;
-		std::cout << "1 " << d.getGrade() << std::endl;
-		std::cout << "1 " << d.getName() << std::endl;
-		d = copy;
-		std::cout << "1 " << d.getGrade() << std::endl;
-		std::cout << "1 " << d.getName() << std::endl;
-		Luca.setGrade(100000);
-		std::cout << Luca << std::endl;
+		std::cout << d << std::endl;
+		std::cout << db << std::endl;
+		d.beSigned(db);
+		db.setGrade(10);
+		d.beSigned(db);
+		d.beSigned(db);
 	}
-	catch(const std::exception& e)
+	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
