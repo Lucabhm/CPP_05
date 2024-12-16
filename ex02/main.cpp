@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:06 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/12 16:37:44 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:47:35 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int	main(void)
 {
+	srand(static_cast<unsigned int>(time(NULL)));
 	try
 	{
 		Bureaucrat				luca("Luca", 10);

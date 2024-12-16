@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:55:11 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/12 16:58:28 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:44:52 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
-# include <random>
+# include <cstdlib>
+# include <ctime>
 # include "../AForm/AForm.hpp"
 
 class RobotomyRequestForm : public AForm
