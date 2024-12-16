@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:16:01 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/12 18:42:14 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:21:10 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,37 @@ Intern::~Intern(void)
 Intern	&Intern::operator= (const Intern &cpy)
 {
 	std::cout << "Intern copy assignment operator called" << std::endl;
+	return (*this);
 }
 
-AForm	*Intern::createShrubbery(std::string target)
+AForm	*createShrubbery(std::string target)
 {
 	return (new ShrubberyCreationForm(target));
 }
 
-AForm	*Intern::createRobotomy(std::string target)
+AForm	*createRobotomy(std::string target)
 {
 	return (new RobotomyRequestForm(target));
 }
 
-AForm	*Intern::createPresidential(std::string target)
+AForm	*createPresidential(std::string target)
 {
 	return (new PresidentialPardonForm(target));
 }
 
 AForm	*Intern::makeForm(std::string formName, std::string targetName)
 {
-	std::map<std::string, getForm>	forms = {
-		{"robotomy request", createRobotomy},
-		{"shrubbery request", createShrubbery},
-		{"presidential request", createPresidential}
-	};
+	AForm	*(*functions[])(std::string target) = {&createRobotomy, &createShrubbery, &createPresidential};
+	std::string	forms[] = {"robotomy request", "shrubbery request", "presidential request"};
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (forms[i] == formName)
+		{
+			std::cout << "Intern creates " << formName << std::endl;
+			return (functions[i](targetName));
+		}
+	}
+	throw "Form request was wrong";
+	return (NULL);
 }

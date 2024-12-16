@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:06 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/12 16:37:44 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:31:04 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 #include "PresidentialPardonForm/PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm/RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm/ShrubberyCreationForm.hpp"
+#include "Intern/Intern.hpp"
 
 int	main(void)
 {
 	try
 	{
-		Bureaucrat				luca("Luca", 10);
+		Bureaucrat				luca("Luca", 1);
 		Bureaucrat				nick("Nick", 11);
-		ShrubberyCreationForm	treeForm("home");
-		RobotomyRequestForm		robotForm("robot");
-		PresidentialPardonForm	presiForm("presi");
+		Intern					randomGuy;
+		AForm					*form1;
 
 		std::cout << luca << std::endl;
-		luca.setGrade(45);
-		std::cout << luca << std::endl;
-		treeForm.beSigned(nick);
-		luca.executeForm(treeForm);
-		robotForm.beSigned(nick);
-		luca.executeForm(robotForm);
-		presiForm.beSigned(nick);
-		luca.setGrade(1);
-		luca.executeForm(presiForm);
+		std::cout << nick << std::endl;
+		form1 = randomGuy.makeForm("presidential request", "Test");
+		form1->beSigned(nick);
+		luca.executeForm(*form1);
+		delete form1;
+	}
+	catch(const char *e)
+	{
+		std::cerr << e << std::endl;
 	}
 	catch(const std::exception& e)
 	{
