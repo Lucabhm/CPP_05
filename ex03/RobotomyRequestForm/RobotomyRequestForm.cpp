@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:55:02 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/12 16:59:18 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:53:04 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,10 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	{
 		if (executor.getGrade() <= this->getGradeToExe())
 		{
-			std::random_device rd;
-			std::mt19937 gen(rd());
-			std::bernoulli_distribution d(0.5);
-			bool randomBool = d(gen);
-			if (randomBool)
+			int	randomInt;
+
+			randomInt = rand() % 2;
+			if (randomInt)
 			{
 				std::cout << "drilling noises" << std::endl;
 				std::cout << this->getTarget() << " has been robotomized" << std::endl;

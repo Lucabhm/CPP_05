@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:06 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/16 13:31:04 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:53:34 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int	main(void)
 {
+	srand(static_cast<unsigned int>(time(NULL)));
 	try
 	{
 		Bureaucrat				luca("Luca", 1);
@@ -27,7 +28,7 @@ int	main(void)
 
 		std::cout << luca << std::endl;
 		std::cout << nick << std::endl;
-		form1 = randomGuy.makeForm("presidential request", "Test");
+		form1 = randomGuy.makeForm("robotomy request", "Test");
 		form1->beSigned(nick);
 		luca.executeForm(*form1);
 		delete form1;
