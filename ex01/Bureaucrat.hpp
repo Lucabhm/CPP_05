@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:35 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 14:13:24 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 16:29:12 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat
 		std::string	getName(void) const;
 		void		setGrade(int newGrade);
 		int			getGrade(void) const;
-		void		signForm(const Form &file) const;
+		void		signForm(Form &file);
 		class GradeTooHighException : public std::exception
 		{
 			public:

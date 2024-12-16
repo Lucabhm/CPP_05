@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:07:04 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 15:02:44 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 16:32:55 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main(void)
 
 		std::cout << d << std::endl;
 		std::cout << db << std::endl;
-		d.beSigned(db);
+		db.signForm(d);
 		db.setGrade(10);
-		d.beSigned(db);
-		d.beSigned(db);
+		db.signForm(d);
+		db.signForm(d);
 	}
 	catch (std::exception &e)
 	{

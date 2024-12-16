@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:07:32 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 16:07:24 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/16 16:29:40 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,16 @@ void	Form::beSigned(Bureaucrat &person)
 {
 	if (!this->signedForm)
 	{
-		try
+		if (person.getGrade() <= this->getGradeToSign())
 		{
-			person.signForm(*this);
+			std::cout << person.getName() << " signed " << this->getName() << std::endl;
 			this->signedForm = true;
 		}
-		catch (std::exception &e)
-		{
-			std::cerr << person.getName() << " couldn't sign " << this->getName() << " because " << e.what() << std::endl;
-		}
+		else
+			throw Form::GradeTooLowException();
 	}
 	else
-		std::cerr << this->getName() << " alredy signed" << std::endl;
+		throw this->getName() + " already signed";
 }
 
 const char *	Form::GradeTooHighException::what() const _NOEXCEPT
