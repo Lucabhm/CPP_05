@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucabohn <lucabohn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:10:48 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 18:15:00 by lucabohn         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:20:54 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,16 @@ void	AForm::beSigned(Bureaucrat &person)
 {
 	if (!this->signedForm)
 	{
-		try
+		if (person.getGrade() <= this->getGradeToSign())
 		{
-			person.signForm(*this);
+			std::cout << person.getName() << " signed " << this->getName() << std::endl;
 			this->signedForm = true;
 		}
-		catch (std::exception &e)
-		{
-			std::cerr << person.getName() << " couldn't sign " << this->getName() << " because " << e.what() << std::endl;
-		}
+		else
+			throw AForm::GradeTooLowException();
 	}
 	else
-		std::cerr << this->getName() << " alredy signed" << std::endl;
+		throw this->getName() + " already signed";
 }
 
 const char *	AForm::GradeTooHighException::what() const _NOEXCEPT

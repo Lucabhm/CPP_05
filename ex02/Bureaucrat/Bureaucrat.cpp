@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:38 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/12 16:20:05 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/17 10:21:12 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,20 @@ int	Bureaucrat::getGrade(void) const
 	return (this->grade);
 }
 
-void	Bureaucrat::signForm(const AForm &file) const
+void	Bureaucrat::signForm(AForm &file)
 {
-	if (this->getGrade() <= file.getGradeToSign())
-		std::cout << this->getName() << " signed " << file.getName() << std::endl;
-	else
-		throw AForm::GradeTooLowException();
+	try
+	{
+		file.beSigned(*this);
+	}
+	catch (const std::string& e)
+	{
+		std::cerr << e << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << this->getName() << " couldn't sign " << file.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 void	Bureaucrat::executeForm(AForm const &form)

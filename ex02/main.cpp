@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:06 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/16 13:47:35 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/17 10:22:56 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ int	main(void)
 		std::cout << luca << std::endl;
 		luca.setGrade(45);
 		std::cout << luca << std::endl;
-		treeForm.beSigned(nick);
+		nick.signForm(treeForm);
 		luca.executeForm(treeForm);
-		robotForm.beSigned(nick);
+		nick.signForm(robotForm);
 		luca.executeForm(robotForm);
-		presiForm.beSigned(nick);
+		nick.signForm(presiForm);
 		luca.setGrade(1);
 		luca.executeForm(presiForm);
+	}
+	catch(const std::string e)
+	{
+		std::cerr << e << std::endl;
 	}
 	catch(const std::exception& e)
 	{
