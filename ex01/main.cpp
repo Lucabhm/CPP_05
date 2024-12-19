@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:07:04 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/17 10:18:48 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:46:09 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	main(void)
 		db.signForm(d);
 		db.setGrade(10);
 		db.signForm(d);
+	}
+	catch(const char *e)
+	{
+		std::cerr << e << std::endl;
 	}
 	catch (const std::string& e)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:07:43 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 14:13:09 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:12:06 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char *	what() const _NOEXCEPT;
+				const char *	what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char *	what() const _NOEXCEPT;
+				const char *	what() const throw();
 		};
 };
 

@@ -6,7 +6,7 @@
 /*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:06 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/17 10:22:56 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:45:52 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int	main(void)
 		nick.signForm(presiForm);
 		luca.setGrade(1);
 		luca.executeForm(presiForm);
+	}
+	catch(const char *e)
+	{
+		std::cerr << e << std::endl;
 	}
 	catch(const std::string e)
 	{

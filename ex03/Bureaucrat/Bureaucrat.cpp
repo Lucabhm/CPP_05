@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:38 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/17 10:28:08 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 09:51:45 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,12 +111,12 @@ void	Bureaucrat::executeForm(AForm const &form)
 	}
 }
 
-const char *	Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
+const char *	Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade to high");
 }
 
-const char *	Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
+const char *	Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade to Low");
 }

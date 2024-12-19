@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:38 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/11 10:22:08 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:12:52 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ std::ostream	&operator<< (std::ostream &stream, const Bureaucrat &person)
 	return (stream);
 }
 
-const char *	Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
+const char *	Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade to high");
 }
 
-const char *	Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
+const char *	Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade to Low");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:10:56 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/12 16:47:23 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:10:01 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ class AForm
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char *	what() const _NOEXCEPT;
+				const char *	what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char *	what() const _NOEXCEPT;
+				const char *	what() const throw();
 		};
 };
 

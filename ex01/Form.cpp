@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:07:32 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/16 16:29:40 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:11:58 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ void	Form::beSigned(Bureaucrat &person)
 		throw this->getName() + " already signed";
 }
 
-const char *	Form::GradeTooHighException::what() const _NOEXCEPT
+const char *	Form::GradeTooHighException::what() const throw()
 {
 	return ("Grade to high");
 }
 
-const char *	Form::GradeTooLowException::what() const _NOEXCEPT
+const char *	Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade to Low");
 }

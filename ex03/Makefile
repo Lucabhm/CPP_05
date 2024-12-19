@@ -1,5 +1,5 @@
 NAME = ex03
-CC = g++
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++17
 SRCS = main.cpp \
 		Bureaucrat/Bureaucrat.cpp \

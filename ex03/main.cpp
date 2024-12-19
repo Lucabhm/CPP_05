@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:06:06 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/17 10:29:37 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:09:20 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,72 @@ int	main(void)
 		Bureaucrat				luca("Luca", 1);
 		Bureaucrat				nick("Nick", 11);
 		Intern					randomGuy;
-		AForm					*form1;
+		AForm					*form1 = NULL;
+		AForm					*form2 = NULL;
+		AForm					*form3 = NULL;
 
 		std::cout << luca << std::endl;
 		std::cout << nick << std::endl;
-		form1 = randomGuy.makeForm("robotomy request", "Test");
-		form1->beSigned(nick);
-		luca.executeForm(*form1);
-		delete form1;
+		try
+		{
+			form1 = randomGuy.makeForm("robotomy request", "Form1");
+			form1->beSigned(nick);
+			luca.executeForm(*form1);
+		}
+		catch(const char *e)
+		{
+			std::cerr << e << std::endl;
+		}
+		catch(const std::string e)
+		{
+			std::cerr << e << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		try
+		{
+			form2 = randomGuy.makeForm("shrubbery request", "Form2");
+			form2->beSigned(nick);
+			luca.executeForm(*form2);
+		}
+		catch(const char *e)
+		{
+			std::cerr << e << std::endl;
+		}
+		catch(const std::string e)
+		{
+			std::cerr << e << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		try
+		{
+			form3 = randomGuy.makeForm("presidential request", "Form3");
+			form3->beSigned(nick);
+			luca.executeForm(*form3);
+		}
+		catch(const char *e)
+		{
+			std::cerr << e << std::endl;
+		}
+		catch(const std::string e)
+		{
+			std::cerr << e << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		if (form1)
+			delete form1;
+		if (form2)
+			delete form2;
+		if (form3)
+			delete form3;
 	}
 	catch(const char *e)
 	{

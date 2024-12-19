@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbohm <lbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lbohm <lbohm@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:10:48 by lbohm             #+#    #+#             */
-/*   Updated: 2024/12/17 10:20:54 by lbohm            ###   ########.fr       */
+/*   Updated: 2024/12/19 10:10:29 by lbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ void	AForm::beSigned(Bureaucrat &person)
 		throw this->getName() + " already signed";
 }
 
-const char *	AForm::GradeTooHighException::what() const _NOEXCEPT
+const char *	AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade to high");
 }
 
-const char *	AForm::GradeTooLowException::what() const _NOEXCEPT
+const char *	AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade to Low");
 }
